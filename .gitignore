@@ -1,1 +1,6 @@
+# NPM Stuff
 node_modules
+
+# Hardhat Stuff
+cache
+artifacts
