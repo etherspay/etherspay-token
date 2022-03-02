@@ -9,6 +9,7 @@ contract ERC20 is IERC20 {
     string public symbol = "EPT";
     uint8 public decimals = 18;
     uint256 public _totalSupply = 21000000 ether; // 21 million tokens
+    address private _owner;
 
     using SafeMath for uint256;
 
@@ -17,6 +18,7 @@ contract ERC20 is IERC20 {
 
     constructor() {
         _balances[msg.sender] = _totalSupply;
+        _owner = msg.sender;
     }
 
     function totalSupply() public view override returns (uint256) {
@@ -81,27 +83,27 @@ contract ERC20 is IERC20 {
     }
 
 
-    function mint(address account, uint256 amount) public {
-        require(account != address(0));
-        _totalSupply = _totalSupply.add(amount);
-        _balances[account] = _balances[account].add(amount);
-        emit Transfer(address(0), account, amount);
-    }
+    // function mint(address account, uint256 amount) public {
+    //     require(account != address(0));
+    //     _totalSupply = _totalSupply.add(amount);
+    //     _balances[account] = _balances[account].add(amount);
+    //     emit Transfer(address(0), account, amount);
+    // }
 
 
-    function burn(address account, uint256 amount) public {
-        require(account != address(0));
-        require(amount <= _balances[account]);
+    // function burn(address account, uint256 amount) public {
+    //     require(account != address(0));
+    //     require(amount <= _balances[account]);
 
-        _totalSupply = _totalSupply.sub(amount);
-        _balances[account] = _balances[account].sub(amount);
-        emit Transfer(account, address(0), amount);
-    }
+    //     _totalSupply = _totalSupply.sub(amount);
+    //     _balances[account] = _balances[account].sub(amount);
+    //     emit Transfer(account, address(0), amount);
+    // }
 
-    function burnFrom(address account, uint256 amount) public {
-        require(amount <= _allowed[account][msg.sender]);
+    // function burnFrom(address account, uint256 amount) public {
+    //     require(amount <= _allowed[account][msg.sender]);
 
-        _allowed[account][msg.sender] = _allowed[account][msg.sender].sub(amount);
-        burn(account, amount);
-    }
+    //     _allowed[account][msg.sender] = _allowed[account][msg.sender].sub(amount);
+    //     burn(account, amount);
+    // }
 }

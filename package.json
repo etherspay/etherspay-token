@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/rayorole/etherspay-token.git"
   },
-  "keywords": [],
+  "keywords": ["ERC20", "Ethereum", "ETP", "Etherspay", "Hardhat"],
   "author": "Ray Orolé",
   "license": "MIT",
   "bugs": {
