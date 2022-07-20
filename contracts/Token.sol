@@ -81,29 +81,4 @@ contract ERC20 is IERC20 {
         emit Approval(msg.sender, spender, _allowed[msg.sender][spender]);
         return true;
     }
-
-
-    // function mint(address account, uint256 amount) public {
-    //     require(account != address(0));
-    //     _totalSupply = _totalSupply.add(amount);
-    //     _balances[account] = _balances[account].add(amount);
-    //     emit Transfer(address(0), account, amount);
-    // }
-
-
-    // function burn(address account, uint256 amount) public {
-    //     require(account != address(0));
-    //     require(amount <= _balances[account]);
-
-    //     _totalSupply = _totalSupply.sub(amount);
-    //     _balances[account] = _balances[account].sub(amount);
-    //     emit Transfer(account, address(0), amount);
-    // }
-
-    // function burnFrom(address account, uint256 amount) public {
-    //     require(amount <= _allowed[account][msg.sender]);
-
-    //     _allowed[account][msg.sender] = _allowed[account][msg.sender].sub(amount);
-    //     burn(account, amount);
-    // }
 }
